@@ -557,50 +557,6 @@ API            | /v1/service?limit=100&page=1
 </pre>
               </div>
               <hr />
-
-              <h5 class="font-weight-bold">Create topup</h5>
-              <table class="table-component">
-                <thead>
-                  <tr>
-                    <th scope="col">Request body</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Required</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>topup</td>
-                    <td>number</td>
-                    <td>✔️</td>
-                  </tr>
-                  <tr>
-                    <td>key</td>
-                    <td>string</td>
-                    <td>✔️</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="content">
-                <p class="text-white font-weight-bold">Example request</p>
-                <pre>
-Method         | POST
-API            | /v1/topup/refill
-
-{
-  "topup": 45000,
-  "key": "bb566caa33e07a634d97e1e9b0bfa267"
-}
-</pre>
-                <p class="text-white font-weight-bold">Example response</p>
-                <pre>
-{
-  "statusCode": 200,
-  "id": "657adb41c57d20f33c69c25c",
-  "message": "Create success"
-}
-</pre>
-              </div>
-              <hr />
             </div>
               
           </div>
