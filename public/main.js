@@ -15,7 +15,7 @@ $(document).ready(async function() {
         const username = $('#username').val();
         const password = $('#password').val();
 
-        if (username.length < 3 || password.length < 4) {
+        if (username.length < 3 || password.length < 3) {
             return alert('Please enter your email and password');
         }
 
@@ -39,6 +39,7 @@ async function login(email, password) {
     } catch (error) {
         alert(error.responseJSON.message);
         clearInputFields();
+        console.error(error)
     }
 }
 
@@ -53,6 +54,7 @@ async function getKey() {
         $('#key').text(response.token || 'null');
     } catch (error) {
         showDialogAlert();
+        console.error(error)
     }
 }
 
