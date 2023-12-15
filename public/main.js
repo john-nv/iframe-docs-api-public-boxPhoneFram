@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:5001/api';
+const apiUrl = 'http://38.242.159.108:5001/api';
 const localStorageKey = 'token';
 let token = localStorage.getItem(localStorageKey);
 
@@ -49,8 +49,8 @@ async function getKey() {
             type: 'GET',
             headers: { 'Authorization': `Bearer ${token}` },
         });
-
-        $('#key').text(response.token);
+        console.log(response)
+        $('#key').text(response.token || 'null');
     } catch (error) {
         showDialogAlert();
     }
