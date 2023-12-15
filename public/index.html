@@ -47,13 +47,14 @@
       <div class="row">
         <div class="col-12 col-sm-3">
           <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item-action active" id="list-oder-list" data-toggle="list" href="#list-oder" role="tab" aria-controls="settings">Oder</a>
-            <a class="list-group-item-action mb-3" id="list-topups-list" data-toggle="list" href="#list-topups" role="tab" aria-controls="settings">Topups</a>
+            <a class="list-group-item-action active" id="list-order-list" data-toggle="list" href="#list-order" role="tab" aria-controls="settings">Order</a>
+            <a class="list-group-item-action" id="list-topups-list" data-toggle="list" href="#list-topups" role="tab" aria-controls="settings">Topup</a>
+            <a class="list-group-item-action mb-3" id="list-service-list" data-toggle="list" href="#list-service" role="tab" aria-controls="settings">Service</a>
           </div>
         </div>
         <div class="col-12 col-sm-9">
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="list-oder" role="tabpanel" aria-labelledby="list-oder-list">
+            <div class="tab-pane fade show active" id="list-order" role="tabpanel" aria-labelledby="list-order-list">
             <h5 class="font-weight-bold">Get order</h5>
             <p>Get order according to quantity</p>
             <table class="table-component">
@@ -166,11 +167,6 @@ API            | /v1/order
                   <tr>
                     <td>quantity</td>
                     <td>number</td>
-                    <td>✔️</td>
-                  </tr>
-                  <tr>
-                    <td>comment</td>
-                    <td>string</td>
                     <td>✔️</td>
                   </tr>
                 </tbody>
@@ -372,7 +368,7 @@ API            | /v1/order/{id}
             </div>
             <div class="tab-pane fade" id="list-topups" role="tabpanel" aria-labelledby="list-topups-list">
               
-              <h5 class="font-weight-bold">Get one order</h5>
+              <h5 class="font-weight-bold">Get one topup</h5>
               <table class="table-component">
                 <thead>
                   <tr>
@@ -421,7 +417,148 @@ API            | /v1/topup/refill/{id}
               </div>
               <hr />
 
-              <h5 class="font-weight-bold">Create order</h5>
+              <h5 class="font-weight-bold">Create topup</h5>
+              <table class="table-component">
+                <thead>
+                  <tr>
+                    <th scope="col">Request body</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Required</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>topup</td>
+                    <td>number</td>
+                    <td>✔️</td>
+                  </tr>
+                  <tr>
+                    <td>key</td>
+                    <td>string</td>
+                    <td>✔️</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="content">
+                <p class="text-white font-weight-bold">Example request</p>
+                <pre>
+Method         | POST
+API            | /v1/topup/refill
+
+{
+  "topup": 45000,
+  "key": "bb566caa33e07a634d97e1e9b0bfa267"
+}
+</pre>
+                <p class="text-white font-weight-bold">Example response</p>
+                <pre>
+{
+  "statusCode": 200,
+  "id": "657adb41c57d20f33c69c25c",
+  "message": "Create success"
+}
+</pre>
+              </div>
+              <hr />
+            </div>
+            <div class="tab-pane fade" id="list-service" role="tabpanel" aria-labelledby="list-service-list">
+              
+              <h5 class="font-weight-bold">Get list service</h5>
+              <table class="table-component">
+                <thead>
+                  <tr>
+                    <th scope="col">Parameters</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Required</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>limit</td>
+                    <td>number</td>
+                    <td>✔️</td>
+                  </tr>
+                  <tr>
+                    <td>page</td>
+                    <td>number</td>
+                    <td>✔️</td>
+                  </tr>
+                  <tr>
+                    <td>country</td>
+                    <td>string</td>
+                    <td>❌</td>
+                  </tr>
+                  <tr>
+                    <td>category</td>
+                    <td>string</td>
+                    <td>❌</td>
+                  </tr>
+                  <tr>
+                    <td>platform</td>
+                    <td>string</td>
+                    <td>❌</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="content">
+                <p class="text-white font-weight-bold">Example request</p>
+                <pre>
+Method         | GET
+API            | /v1/service?limit=100&page=1
+
+{
+  "limit": 100,
+  "page": 1
+}
+</pre>
+                <p class="text-white font-weight-bold">Example response</p>
+                <pre>
+{
+  "statusCode": 200,
+  "count": 8,
+  "limit": 100,
+  "page": 1,
+  "data": [
+      {
+        "_id": "657bf0830e693bd142902aac",
+        "name": "Facebook Video/Reel Video Views | Time views 3 seconds | Max Unlimited | Speed 100k/day",
+        "type": "Default",
+        "platform": "Facebook",
+        "category": "Views",
+        "rate": 2.5,
+        "min": 200,
+        "max": 10000,
+        "refill": true,
+        "country": "VN",
+        "owner": "657becbb0e693bd142902a7c",
+        "createdAt": "2023-12-15T06:21:55.849Z",
+        "updatedAt": "2023-12-15T06:21:55.849Z",
+        "__v": 0
+    },
+    {
+        "_id": "657bf37344f168a1137c2522",
+        "name": "Facebook Views",
+        "type": "Default",
+        "platform": "Facebook",
+        "category": "Views",
+        "rate": 2.5,
+        "min": 200,
+        "max": 100000,
+        "refill": true,
+        "country": "VN",
+        "owner": "657becbb0e693bd142902a7c",
+        "createdAt": "2023-12-15T06:34:27.547Z",
+        "updatedAt": "2023-12-15T06:34:27.547Z",
+        "__v": 0
+    },
+    ...
+  ]
+}
+</pre>
+              </div>
+              <hr />
+
+              <h5 class="font-weight-bold">Create topup</h5>
               <table class="table-component">
                 <thead>
                   <tr>
@@ -482,7 +619,7 @@ API            | /v1/topup/refill
           </div>
           <div class="modal-body">
             <input type="text" id="username" class="form-control" placeholder="Username">
-            <input type="text" id="password" class="form-control mt-2" placeholder="Password">
+            <input type="password" id="password" class="form-control mt-2" placeholder="Password">
           </div>
           <div class="modal-footer">
             <button type="button" id="login" style="background-color: #1e1e2d; border: #e84393;" class="btn btn-primary">Login</button>
