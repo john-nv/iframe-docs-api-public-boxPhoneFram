@@ -1,4 +1,4 @@
-const apiUrl = 'http://38.242.159.108:5001/api';
+const apiUrl = 'http://api.tinhr.com/api';
 const localStorageKey = 'token';
 let token = localStorage.getItem(localStorageKey);
 
