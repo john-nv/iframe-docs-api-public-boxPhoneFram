@@ -1,4 +1,5 @@
-const apiUrl = 'http://api.tinhr.com/api';
+import { API_URL as apiUrl } from "../../util/constants.js";
+
 const localStorageKey = 'token';
 let token = localStorage.getItem(localStorageKey);
 

@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+p, span, label, h1, h2, h3, h4, h5 {
+    color: white;
+}
+
+.infoAdmin img {
+    width: 24px;
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+    overflow: hidden;
+    background-color: #212529;
+    border-radius: 3px;
+}

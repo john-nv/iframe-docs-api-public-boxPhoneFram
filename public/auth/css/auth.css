@@ -1,0 +1,31 @@
+* {
+  font-family: 'Rubik', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #151521;
+}
+
+._main {
+  text-align: center;
+  /* border: 1px solid #2B2B40; */
+  background-color: #2B2B40;
+  padding: 10px;  
+  margin-top: 10vh;
+  border-radius: 7px;
+}
+
+.header > img{
+  height: 60px;
+  width: 60px;
+}
+.btn-submit{
+  width: 100%;
+}
+
+a, button, img {
+  cursor: pointer;
+}
