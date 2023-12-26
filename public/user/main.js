@@ -20,6 +20,9 @@ $( document ).ready(async () => {
 
     function hideOverlay() {
         $('.overlay, body').addClass('loaded');
+        setTimeout(()=>{
+            $('.overlay').remove();
+        },1500)
     }
 });
 
